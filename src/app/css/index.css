@@ -1,0 +1,65 @@
+body{
+  background: #BBDEFB;
+  font-family: Roboto;
+}
+
+.nav-wrapper{
+  background: #2196F3;
+}
+nav {
+  height: 80px;
+  width: 100%;
+}
+.brand-logo{
+  margin-left: 5px;
+  font-size: 20px !important;
+}
+
+#add-todo{
+  display: flex;
+  margin-bottom: -40px;
+}
+
+#add-todo input[type="text"]{
+    padding-left: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 4px 0 0 4px;
+
+}
+
+#add-todo input[type="submit"]{
+
+    background: #4CAF50;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 20px;
+    border: 2px solid #4CAF50;
+    color: #fff;
+    text-transform: uppercase;
+
+}
+
+#todo-container{
+  margin: 0 auto;
+  background: #fff;
+  border-top: 3px;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+
+@media only screen and (min-width: 768px) {
+  nav {
+    height: 80px !important;
+    width: 60% !important;
+    margin-left: 20%;
+  }
+  .brand-logo{
+    margin: 10px;
+    margin-left: 20px;
+    font-size: 50px !important;
+  }
+  #todo-container{
+    width: 60%;
+    margin-left: 20%;
+  }
+}

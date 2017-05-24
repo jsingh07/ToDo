@@ -1,0 +1,26 @@
+
+.delete{
+  display: flex;
+  align: right;
+  color: #e53935;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+.task-name{
+  flex-basis: 0;
+  flex-grow: 50;
+}
+
+.task-item{
+  padding: 8px 5px;
+  display: flex;
+}
+
+.task-item:hover{
+  background: #eee;
+}
+
+.collection-item:hover{
+  background: #eee !important;
+}

@@ -12,6 +12,13 @@ export function addTaskToList(task){
         payload: task
     }
 }
+
+export function delTaskList(task){
+    return{
+        type: 'DEL_TASK',
+        payload: task
+    }
+}
 /*export function createList(){
     return function(dispatch){
         dispatch({type: "NEW_LIST"});

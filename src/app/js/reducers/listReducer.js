@@ -9,6 +9,12 @@ export default function reducer(state={
         case "ADD_TASK": {
             return {...state, list: [...state.list, action.payload]}
         }
+        case "DEL_TASK": {
+            return {...state, list: [...state.list.filter(function(i)
+            {
+                return i != action.payload
+            })]}
+        }
     }
     return state
 }

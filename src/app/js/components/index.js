@@ -6,8 +6,8 @@ import { connect } from "react-redux"
 import { bindActionCreators } from 'redux';
 
 //import actions
-import { fetchList } from "../actions/listAction"
-import {addTaskToList} from "../actions/listAction"
+import { fetchList, delTaskList, addTaskToList } from "../actions/listAction"
+//import {addTaskToList} from "../actions/listAction"
 import * as actions from "../actions/listAction"
 
 
@@ -44,16 +44,18 @@ class TodoComp extends React.Component{
     }
     constructor(){
         super();
-        this.state = {todos: ['pick up pizza', 'make dinner', 'meeting at 4']};
+        this.state = {todos: []};
         this.delete = this.delete.bind(this);
         this.add = this.add.bind(this);
     }
 
     render(){
-        var todos = this.state.todos;
-        todos = todos.map(function(item, index){
-            return(<TaskItem key={index} task={item} onDelete={this.delete}/>);
-        }.bind(this));
+        var todos = this.props.list;
+        if(todos.length > 0){
+            todos = todos.map(function(item, index){
+                return(<TaskItem key={index} task={item} onDelete={this.delete}/>);
+            }.bind(this));
+        }
 
         return(
             <div id="todo-list">
@@ -64,16 +66,12 @@ class TodoComp extends React.Component{
     }
 
     delete(task){
-        var  newTodo = this.state.todos.filter(function(val, index){
-            return task !== val;
-        });
-        this.setState({todos: newTodo});
+        this.props.dispatch(delTaskList(task));
+        this.setState({todos: this.props.list});
     }
     add(task){
-        var newTodo = this.state.todos;
-        newTodo.push(task);
-        this.props.dispatch(addTaskToList());
-        this.setState({todos: newTodo});
+        this.props.dispatch(addTaskToList(task));
+        this.setState({todos: this.props.list});
     }
 }
 
